@@ -1,11 +1,12 @@
-/* eslint-disable no-bitwise */
+const HASH_MODULUS = 2147483647;
+const HASH_FACTOR = 16777619;
+
 export const hashString = (value: string) => {
-  let hash = 2166136261;
+  let hash = 2166136261 % HASH_MODULUS;
   for (let index = 0; index < value.length; index += 1) {
-    hash ^= value.charCodeAt(index);
-    hash = Math.imul(hash, 16777619);
+    hash = (hash * 31 + value.charCodeAt(index) * HASH_FACTOR) % HASH_MODULUS;
   }
-  return Math.abs(hash);
+  return hash;
 };
 
 export const seededPercent = (value: string) => hashString(value) % 100;
