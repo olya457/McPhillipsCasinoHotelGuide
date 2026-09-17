@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   FlatList,
   Image,
@@ -9,19 +9,20 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {useNavigation} from '@react-navigation/native';
-import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {
+  ContentReveal,
   EmptyState,
   Icon,
   ScreenContainer,
   ScreenHeader,
   TagPill,
 } from '../../components';
-import {venues} from '../../data/venues';
-import {colors, layout, s, typography, vs} from '../../theme';
-import type {RootStackParamList} from '../../navigation/types';
-import type {Venue} from '../../types';
+import { venues } from '../../data/venues';
+import { colors, layout, s, typography, vs } from '../../theme';
+import type { RootStackParamList } from '../../navigation/types';
+import type { Venue } from '../../types';
 
 type Navigation = NativeStackNavigationProp<RootStackParamList>;
 
@@ -43,48 +44,51 @@ export const VenuesScreen = () => {
     );
   }, [query]);
 
-  const renderItem = ({item, index}: {item: Venue; index: number}) => (
-    <Pressable
-      accessibilityRole="button"
-      onPress={() => navigation.navigate('VenueDetail', {venueId: item.id})}
-      style={({pressed}) => [styles.card, pressed && styles.pressed]}>
-      <Image source={item.image} style={styles.image} resizeMode="cover" />
-      <LinearGradient
-        colors={['rgba(6,9,7,0.25)', 'rgba(6,9,7,0.82)', 'rgba(6,9,7,0.99)']}
-        locations={[0, 0.55, 1]}
-        style={styles.overlay}
-      />
-      <View style={styles.cardTop}>
-        <View style={styles.indexBadge}>
-          <Text style={styles.indexText}>{index + 1}</Text>
+  const renderItem = ({ item, index }: { item: Venue; index: number }) => (
+    <ContentReveal delay={index < 4 ? index * 65 : 0}>
+      <Pressable
+        accessibilityRole="button"
+        onPress={() => navigation.navigate('VenueDetail', { venueId: item.id })}
+        style={({ pressed }) => [styles.card, pressed && styles.pressed]}
+      >
+        <Image source={item.image} style={styles.image} resizeMode="cover" />
+        <LinearGradient
+          colors={['rgba(6,9,7,0.25)', 'rgba(6,9,7,0.82)', 'rgba(6,9,7,0.99)']}
+          locations={[0, 0.55, 1]}
+          style={styles.overlay}
+        />
+        <View style={styles.cardTop}>
+          <View style={styles.indexBadge}>
+            <Text style={styles.indexText}>{index + 1}</Text>
+          </View>
+          <View style={styles.cardBadges}>
+            {item.ageRestricted ? <TagPill label="18+" tone="danger" /> : null}
+            {item.bookingRequired ? (
+              <TagPill label="Booking" tone="gold" />
+            ) : null}
+            {item.menuSections?.length ? (
+              <TagPill label="Menu" tone="emerald" icon="menu" />
+            ) : null}
+          </View>
         </View>
-        <View style={styles.cardBadges}>
-          {item.ageRestricted ? <TagPill label="18+" tone="danger" /> : null}
-          {item.bookingRequired ? (
-            <TagPill label="Booking" tone="gold" />
-          ) : null}
-          {item.menuSections?.length ? (
-            <TagPill label="Menu" tone="emerald" icon="menu" />
-          ) : null}
-        </View>
-      </View>
 
-      <View style={styles.cardBody}>
-        <Text style={styles.cardTitle} numberOfLines={1}>
-          {item.name}
-        </Text>
-        <Text style={styles.cardShort} numberOfLines={2}>
-          {item.short}
-        </Text>
-        <View style={styles.cardMeta}>
-          <Icon name="clock" size={s(12)} color={colors.gold} />
-          <Text style={styles.cardHours} numberOfLines={1}>
-            {item.schedule.hours}
+        <View style={styles.cardBody}>
+          <Text style={styles.cardTitle} numberOfLines={1}>
+            {item.name}
           </Text>
-          <Icon name="chevron" size={s(13)} color={colors.emerald} />
+          <Text style={styles.cardShort} numberOfLines={2}>
+            {item.short}
+          </Text>
+          <View style={styles.cardMeta}>
+            <Icon name="clock" size={s(12)} color={colors.gold} />
+            <Text style={styles.cardHours} numberOfLines={1}>
+              {item.schedule.hours}
+            </Text>
+            <Icon name="chevron" size={s(13)} color={colors.emerald} />
+          </View>
         </View>
-      </View>
-    </Pressable>
+      </Pressable>
+    </ContentReveal>
   );
 
   return (
@@ -117,7 +121,8 @@ export const VenuesScreen = () => {
                 accessibilityRole="button"
                 accessibilityLabel="Clear search"
                 hitSlop={layout.hitSlop}
-                onPress={() => setQuery('')}>
+                onPress={() => setQuery('')}
+              >
                 <Icon name="close" size={s(15)} color={colors.textMuted} />
               </Pressable>
             ) : null}

@@ -9,14 +9,15 @@ import {
   type ViewStyle,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {colors, gradients} from '../theme';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { colors, gradients } from '../theme';
+import { ContentReveal } from './ContentReveal';
 
 interface ScreenContainerProps {
   children: React.ReactNode;
   background?: ImageSourcePropType;
   overlay?: readonly string[];
-  edges?: {top?: boolean; bottom?: boolean};
+  edges?: { top?: boolean; bottom?: boolean };
   style?: StyleProp<ViewStyle>;
 }
 
@@ -24,13 +25,14 @@ export const ScreenContainer = ({
   children,
   background,
   overlay = ['rgba(6,9,7,0.6)', 'rgba(6,9,7,0.94)', colors.bg],
-  edges = {top: true, bottom: false},
+  edges = { top: true, bottom: false },
   style,
 }: ScreenContainerProps) => {
   const insets = useSafeAreaInsets();
 
   const content = (
-    <View
+    <ContentReveal
+      distance={10}
       style={[
         styles.content,
         {
@@ -38,16 +40,25 @@ export const ScreenContainer = ({
           paddingBottom: edges.bottom ? insets.bottom : 0,
         },
         style,
-      ]}>
+      ]}
+    >
       {children}
-    </View>
+    </ContentReveal>
   );
 
   return (
     <View style={styles.root}>
-      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
       {background ? (
-        <ImageBackground source={background} style={styles.image} resizeMode="cover">
+        <ImageBackground
+          source={background}
+          style={styles.image}
+          resizeMode="cover"
+        >
           <LinearGradient colors={[...overlay]} style={styles.fill}>
             {content}
           </LinearGradient>
@@ -55,7 +66,8 @@ export const ScreenContainer = ({
       ) : (
         <LinearGradient
           colors={[...gradients.dark, colors.bg]}
-          style={styles.fill}>
+          style={styles.fill}
+        >
           {content}
         </LinearGradient>
       )}

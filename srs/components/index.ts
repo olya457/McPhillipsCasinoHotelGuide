@@ -1,3 +1,4 @@
+export {ContentReveal} from './ContentReveal';
 export {BottomSheet} from './BottomSheet';
 export {Countdown} from './Countdown';
 export {EmptyState} from './EmptyState';

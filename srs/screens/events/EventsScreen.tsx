@@ -1,9 +1,10 @@
-import React, {useCallback, useMemo, useState} from 'react';
-import {FlatList, Pressable, StyleSheet, Text, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import React, { useCallback, useMemo, useState } from 'react';
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {
   BottomSheet,
+  ContentReveal,
   EmptyState,
   GradientButton,
   Icon,
@@ -15,8 +16,8 @@ import {
   eventDateFilters,
   eventFormats,
 } from '../../data/events';
-import {colors, layout, s, typography, vs} from '../../theme';
-import {useAppState} from '../../store/AppStateContext';
+import { colors, layout, s, typography, vs } from '../../theme';
+import { useAppState } from '../../store/AppStateContext';
 import {
   activeFilterCount,
   emptyFilters,
@@ -24,10 +25,10 @@ import {
   filterEvents,
   type EventFilters,
 } from '../../utils/events';
-import type {RootStackParamList} from '../../navigation/types';
-import type {CasinoEvent} from '../../types';
-import {EventCard} from './EventCard';
-import {EventFilterBar, type FilterGroup} from './EventFilterBar';
+import type { RootStackParamList } from '../../navigation/types';
+import type { CasinoEvent } from '../../types';
+import { EventCard } from './EventCard';
+import { EventFilterBar, type FilterGroup } from './EventFilterBar';
 
 type Navigation = NativeStackNavigationProp<RootStackParamList>;
 
@@ -41,7 +42,7 @@ const ListSeparator = () => <View style={styles.separator} />;
 
 export const EventsScreen = () => {
   const navigation = useNavigation<Navigation>();
-  const {bookings} = useAppState();
+  const { bookings } = useAppState();
   const [filters, setFilters] = useState<EventFilters>(emptyFilters);
   const [openGroup, setOpenGroup] = useState<FilterGroup['key'] | null>(null);
 
@@ -76,7 +77,7 @@ export const EventsScreen = () => {
 
   const select = useCallback(
     (key: FilterGroup['key'], value: string | null) => {
-      setFilters(current => ({...current, [key]: value}) as EventFilters);
+      setFilters(current => ({ ...current, [key]: value } as EventFilters));
       setOpenGroup(null);
     },
     [],
@@ -92,12 +93,16 @@ export const EventsScreen = () => {
   );
 
   const renderItem = useCallback(
-    ({item}: {item: CasinoEvent}) => (
-      <EventCard
-        event={item}
-        bookedSeats={seatsFor(item)}
-        onPress={() => navigation.navigate('EventDetail', {eventId: item.id})}
-      />
+    ({ item, index }: { item: CasinoEvent; index: number }) => (
+      <ContentReveal delay={index < 4 ? index * 65 : 0}>
+        <EventCard
+          event={item}
+          bookedSeats={seatsFor(item)}
+          onPress={() =>
+            navigation.navigate('EventDetail', { eventId: item.id })
+          }
+        />
+      </ContentReveal>
     ),
     [navigation, seatsFor],
   );
@@ -139,7 +144,7 @@ export const EventsScreen = () => {
             icon="events"
             title="No events match"
             message="Try another combination of category, date and format to see the programme."
-            >
+          >
             <GradientButton
               label="Reset filters"
               variant="outline"
@@ -153,7 +158,8 @@ export const EventsScreen = () => {
         visible={activeGroup != null}
         onClose={() => setOpenGroup(null)}
         title={activeGroup ? groupTitles[activeGroup.key] : ''}
-        subtitle="Choose one option or clear this filter">
+        subtitle="Choose one option or clear this filter"
+      >
         {activeGroup
           ? [null, ...activeGroup.options].map(option => {
               const selected = activeGroup.value === option;
@@ -162,18 +168,20 @@ export const EventsScreen = () => {
                 <Pressable
                   key={label}
                   accessibilityRole="button"
-                  accessibilityState={{selected}}
+                  accessibilityState={{ selected }}
                   onPress={() => select(activeGroup.key, option)}
-                  style={({pressed}) => [
+                  style={({ pressed }) => [
                     styles.option,
                     selected && styles.optionSelected,
                     pressed && styles.optionPressed,
-                  ]}>
+                  ]}
+                >
                   <Text
                     style={[
                       styles.optionLabel,
                       selected && styles.optionLabelSelected,
-                    ]}>
+                    ]}
+                  >
                     {label}
                   </Text>
                   {selected ? (
