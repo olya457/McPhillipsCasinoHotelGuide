@@ -24,7 +24,7 @@ interface ScreenContainerProps {
 export const ScreenContainer = ({
   children,
   background,
-  overlay = ['rgba(6,9,7,0.6)', 'rgba(6,9,7,0.94)', colors.bg],
+  overlay = ['rgba(24,13,38,0.6)', 'rgba(24,13,38,0.94)', colors.bg],
   edges = { top: true, bottom: false },
   style,
 }: ScreenContainerProps) => {

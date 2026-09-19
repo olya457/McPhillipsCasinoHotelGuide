@@ -19,7 +19,7 @@ export const EmptyState = ({
 }: EmptyStateProps) => (
   <View style={styles.root}>
     <LinearGradient
-      colors={['rgba(47,212,111,0.16)', 'rgba(11,18,14,0.7)']}
+      colors={['rgba(47,212,111,0.16)', 'rgba(33,18,51,0.7)']}
       style={styles.badge}>
       <Icon name={icon} size={s(26)} color={colors.emerald} />
     </LinearGradient>

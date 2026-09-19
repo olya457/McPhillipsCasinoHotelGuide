@@ -25,7 +25,7 @@ export const EventCard = ({event, onPress, bookedSeats = 0}: EventCardProps) => 
       <View style={styles.imageWrapper}>
         <Image source={event.image} style={styles.image} resizeMode="cover" />
         <LinearGradient
-          colors={['rgba(6,9,7,0.1)', 'rgba(6,9,7,0.5)', 'rgba(6,9,7,0.97)']}
+          colors={['rgba(24,13,38,0.1)', 'rgba(24,13,38,0.5)', 'rgba(24,13,38,0.97)']}
           locations={[0, 0.45, 1]}
           style={styles.imageOverlay}
         />

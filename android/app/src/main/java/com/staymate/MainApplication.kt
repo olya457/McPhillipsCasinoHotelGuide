@@ -1,4 +1,4 @@
-package com.mcphillips.hotelguide
+package com.staymate
 
 import android.app.Application
 import com.facebook.react.PackageList

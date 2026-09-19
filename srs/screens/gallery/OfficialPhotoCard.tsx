@@ -28,7 +28,7 @@ export const OfficialPhotoCard = ({
     style={({pressed}) => [styles.root, pressed && styles.pressed]}>
     <Image source={event.image} style={styles.image} resizeMode="cover" />
     <LinearGradient
-      colors={['rgba(6,9,7,0.05)', 'rgba(6,9,7,0.7)', 'rgba(6,9,7,0.98)']}
+      colors={['rgba(24,13,38,0.05)', 'rgba(24,13,38,0.7)', 'rgba(24,13,38,0.98)']}
       locations={[0, 0.45, 1]}
       style={styles.overlay}
     />

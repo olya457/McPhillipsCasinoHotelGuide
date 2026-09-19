@@ -10,7 +10,7 @@ export const TopScrim = () => {
   return (
     <LinearGradient
       pointerEvents="none"
-      colors={['rgba(6,9,7,0.92)', 'rgba(6,9,7,0.55)', 'rgba(6,9,7,0)']}
+      colors={['rgba(24,13,38,0.92)', 'rgba(24,13,38,0.55)', 'rgba(24,13,38,0)']}
       style={[styles.scrim, {height: insets.top + s(14)}]}
     />
   );

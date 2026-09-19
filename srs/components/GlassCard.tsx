@@ -19,10 +19,10 @@ interface GlassCardProps {
 }
 
 const toneColors: Record<string, readonly string[]> = {
-  default: ['rgba(22,34,27,0.92)', 'rgba(11,18,14,0.92)'],
-  emerald: ['rgba(47,212,111,0.16)', 'rgba(11,18,14,0.9)'],
-  gold: ['rgba(231,206,142,0.14)', 'rgba(11,18,14,0.9)'],
-  danger: ['rgba(229,87,78,0.14)', 'rgba(11,18,14,0.9)'],
+  default: ['rgba(50,32,71,0.92)', 'rgba(33,18,51,0.92)'],
+  emerald: ['rgba(47,212,111,0.16)', 'rgba(33,18,51,0.9)'],
+  gold: ['rgba(231,206,142,0.14)', 'rgba(33,18,51,0.9)'],
+  danger: ['rgba(229,87,78,0.14)', 'rgba(33,18,51,0.9)'],
 };
 
 const toneBorders: Record<string, string> = {

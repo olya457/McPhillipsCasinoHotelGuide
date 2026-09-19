@@ -62,7 +62,7 @@ export const VenueDetailScreen = ({navigation, route}: Props) => {
         <View style={styles.hero}>
           <Image source={venue.image} style={styles.heroImage} resizeMode="cover" />
           <LinearGradient
-            colors={['rgba(6,9,7,0.72)', 'rgba(6,9,7,0.32)', 'rgba(6,9,7,0.99)']}
+            colors={['rgba(24,13,38,0.72)', 'rgba(24,13,38,0.32)', 'rgba(24,13,38,0.99)']}
             locations={[0, 0.42, 0.95]}
             style={styles.heroOverlay}
           />
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     borderRadius: s(19),
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(6,9,7,0.6)',
+    backgroundColor: 'rgba(24,13,38,0.6)',
     borderWidth: 1,
     borderColor: colors.borderNeutral,
   },

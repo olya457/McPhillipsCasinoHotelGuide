@@ -14,7 +14,7 @@ interface CountdownProps {
 const Unit = ({value, unit}: {value: string; unit: string}) => (
   <View style={styles.unit}>
     <LinearGradient
-      colors={['rgba(47,212,111,0.18)', 'rgba(11,18,14,0.9)']}
+      colors={['rgba(47,212,111,0.18)', 'rgba(33,18,51,0.9)']}
       start={{x: 0, y: 0}}
       end={{x: 1, y: 1}}
       style={styles.unitBox}>

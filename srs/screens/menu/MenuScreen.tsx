@@ -130,7 +130,7 @@ const MenuRow = ({item, index}: {item: MenuItem; index: number}) => {
       style={({pressed}) => [styles.row, pressed && styles.pressed]}>
       <Image source={item.image} style={styles.rowImage} resizeMode="cover" />
       <LinearGradient
-        colors={['rgba(6,9,7,0.15)', 'rgba(6,9,7,0.8)', 'rgba(6,9,7,0.98)']}
+        colors={['rgba(24,13,38,0.15)', 'rgba(24,13,38,0.8)', 'rgba(24,13,38,0.98)']}
         locations={[0, 0.5, 1]}
         style={styles.rowOverlay}
       />
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     borderRadius: s(14),
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(6,9,7,0.7)',
+    backgroundColor: 'rgba(24,13,38,0.7)',
     borderWidth: 1,
     borderColor: colors.border,
   },

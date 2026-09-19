@@ -123,7 +123,7 @@ export const TonightScreen = () => {
             resizeMode="cover"
           />
           <LinearGradient
-            colors={['rgba(6,9,7,0.55)', 'rgba(6,9,7,0.35)', 'rgba(6,9,7,0.99)']}
+            colors={['rgba(24,13,38,0.55)', 'rgba(24,13,38,0.35)', 'rgba(24,13,38,0.99)']}
             locations={[0, 0.4, 0.94]}
             style={styles.heroOverlay}
           />
@@ -314,7 +314,7 @@ const QuickAction = ({
     onPress={onPress}
     style={({pressed}) => [styles.quickItem, pressed && styles.quickPressed]}>
     <LinearGradient
-      colors={['rgba(47,212,111,0.12)', 'rgba(11,18,14,0.9)']}
+      colors={['rgba(47,212,111,0.12)', 'rgba(33,18,51,0.9)']}
       start={{x: 0, y: 0}}
       end={{x: 1, y: 1}}
       style={styles.quickInner}>

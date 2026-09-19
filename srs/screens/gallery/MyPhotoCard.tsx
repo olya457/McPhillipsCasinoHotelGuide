@@ -29,7 +29,7 @@ export const MyPhotoCard = ({
       style={({pressed}) => [styles.root, pressed && styles.pressed]}>
       <Image source={{uri: photo.uri}} style={styles.image} resizeMode="cover" />
       <LinearGradient
-        colors={['rgba(6,9,7,0.1)', 'rgba(6,9,7,0.72)', 'rgba(6,9,7,0.98)']}
+        colors={['rgba(24,13,38,0.1)', 'rgba(24,13,38,0.72)', 'rgba(24,13,38,0.98)']}
         locations={[0, 0.5, 1]}
         style={styles.overlay}
       />
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     borderRadius: s(14),
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(6,9,7,0.72)',
+    backgroundColor: 'rgba(24,13,38,0.72)',
     borderWidth: 1,
     borderColor: colors.borderNeutral,
   },

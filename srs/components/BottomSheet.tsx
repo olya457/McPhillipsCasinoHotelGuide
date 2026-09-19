@@ -46,7 +46,7 @@ export const BottomSheet = ({
           onPress={onClose}
         />
         <LinearGradient
-          colors={['rgba(22,34,27,0.99)', 'rgba(6,9,7,1)']}
+          colors={['rgba(50,32,71,0.99)', 'rgba(24,13,38,1)']}
           style={[styles.sheet, {paddingBottom: insets.bottom + s(16)}]}>
           <View style={styles.grabber} />
           <View style={styles.header}>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   backdrop: {
     ...StyleSheet.absoluteFill,
-    backgroundColor: 'rgba(2,4,3,0.72)',
+    backgroundColor: 'rgba(12,6,20,0.72)',
   },
   sheet: {
     borderTopLeftRadius: layout.radiusXl,

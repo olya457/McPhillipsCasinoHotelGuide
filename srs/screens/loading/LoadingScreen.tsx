@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import { ImageBackground, StatusBar, StyleSheet, View } from 'react-native';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LoadingIndicator } from './LoadingIndicator';
-import { brand } from '../../assets/images';
-import { colors } from '../../theme';
+import { colors, gradients, font, layout } from '../../theme';
 import { useAppState } from '../../store/AppStateContext';
 import type { RootStackParamList } from '../../navigation/types';
 
@@ -43,11 +43,12 @@ export const LoadingScreen = ({ navigation }: Props) => {
         backgroundColor="transparent"
         translucent
       />
-      <ImageBackground
-        source={brand.splashBackground}
+      <LinearGradient
+        colors={[...gradients.dark, colors.bg]}
         style={styles.background}
-        resizeMode="cover"
-      />
+      >
+        <Text accessibilityRole="header" style={styles.title}>Stay Mate</Text>
+      </LinearGradient>
       <View
         pointerEvents="none"
         style={[styles.loader, { bottom: insets.bottom + 40 }]}
@@ -71,5 +72,15 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: layout.gutter,
+  },
+  title: {
+    color: colors.text,
+    fontSize: font(42),
+    fontWeight: '700',
+    letterSpacing: 1,
+    textAlign: 'center',
   },
 });

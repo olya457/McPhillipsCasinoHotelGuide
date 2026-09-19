@@ -53,7 +53,7 @@ export const VenuesScreen = () => {
       >
         <Image source={item.image} style={styles.image} resizeMode="cover" />
         <LinearGradient
-          colors={['rgba(6,9,7,0.25)', 'rgba(6,9,7,0.82)', 'rgba(6,9,7,0.99)']}
+          colors={['rgba(24,13,38,0.25)', 'rgba(24,13,38,0.82)', 'rgba(24,13,38,0.99)']}
           locations={[0, 0.55, 1]}
           style={styles.overlay}
         />
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     borderRadius: s(15),
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(6,9,7,0.65)',
+    backgroundColor: 'rgba(24,13,38,0.65)',
     borderWidth: 1,
     borderColor: colors.border,
   },

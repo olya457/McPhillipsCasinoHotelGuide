@@ -68,9 +68,9 @@ export const OnboardingScreen = ({navigation}: Props) => {
         resizeMode="cover">
         <LinearGradient
           colors={[
-            'rgba(6,9,7,0.35)',
-            'rgba(6,9,7,0.62)',
-            'rgba(6,9,7,0.97)',
+            'rgba(24,13,38,0.35)',
+            'rgba(24,13,38,0.62)',
+            'rgba(24,13,38,0.97)',
           ]}
           locations={[0, 0.45, 0.86]}
           style={styles.slideOverlay}
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: s(14),
     paddingVertical: s(7),
     borderRadius: layout.pill,
-    backgroundColor: 'rgba(6,9,7,0.5)',
+    backgroundColor: 'rgba(24,13,38,0.5)',
     borderWidth: 1,
     borderColor: colors.borderNeutral,
   },

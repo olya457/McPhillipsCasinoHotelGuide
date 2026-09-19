@@ -44,7 +44,7 @@ const gradientByVariant: Record<Variant, readonly string[]> = {
   primary: gradients.primary,
   gold: gradients.gold,
   danger: gradients.danger,
-  outline: ['rgba(47,212,111,0.12)', 'rgba(11,18,14,0.6)'],
+  outline: ['rgba(47,212,111,0.12)', 'rgba(33,18,51,0.6)'],
   ghost: ['rgba(255,255,255,0.06)', 'rgba(255,255,255,0.02)'],
 };
 

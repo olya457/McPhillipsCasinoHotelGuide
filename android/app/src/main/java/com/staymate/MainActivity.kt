@@ -1,4 +1,4 @@
-package com.mcphillips.hotelguide
+package com.staymate
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

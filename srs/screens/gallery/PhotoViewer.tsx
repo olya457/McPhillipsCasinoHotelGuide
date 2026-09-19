@@ -52,7 +52,7 @@ export const PhotoViewer = ({content, onClose}: PhotoViewerProps) => {
               resizeMode="contain"
             />
             <LinearGradient
-              colors={['rgba(4,7,5,0.92)', 'rgba(4,7,5,0.2)']}
+              colors={['rgba(18,9,29,0.92)', 'rgba(18,9,29,0.2)']}
               style={[styles.topScrim, {paddingTop: insets.top + s(10)}]}>
               <Pressable
                 accessibilityRole="button"
@@ -65,7 +65,7 @@ export const PhotoViewer = ({content, onClose}: PhotoViewerProps) => {
             </LinearGradient>
 
             <LinearGradient
-              colors={['rgba(4,7,5,0)', 'rgba(4,7,5,0.85)', 'rgba(4,7,5,0.99)']}
+              colors={['rgba(18,9,29,0)', 'rgba(18,9,29,0.85)', 'rgba(18,9,29,0.99)']}
               style={[
                 styles.bottomScrim,
                 {paddingBottom: insets.bottom + s(18)},
@@ -124,7 +124,7 @@ export const PhotoViewer = ({content, onClose}: PhotoViewerProps) => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: 'rgba(4,7,5,0.98)',
+    backgroundColor: 'rgba(18,9,29,0.98)',
     justifyContent: 'center',
   },
   image: {
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     borderRadius: s(19),
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(6,9,7,0.7)',
+    backgroundColor: 'rgba(24,13,38,0.7)',
     borderWidth: 1,
     borderColor: colors.borderNeutral,
   },
