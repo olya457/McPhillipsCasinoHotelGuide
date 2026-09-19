@@ -130,7 +130,7 @@ export const venues: Venue[] = [
   },
   {
     id: 'grand-casino',
-    name: 'Grand Casino',
+    name: 'Grand',
     short: 'Table games, slots and private gaming rooms',
     schedule: {days: 'Monday–Sunday', hours: '16:00–04:00'},
     paragraphs: [
@@ -140,7 +140,7 @@ export const venues: Venue[] = [
     highlights: ['Table games & slots', 'Private lounge', 'ID required'],
     image: scenes.casinoExterior,
     lookImage: looks.casinoClassic,
-    lookTitle: 'Casino Classic',
+    lookTitle: 'Classic',
     lookNote: 'Elegant casual with a tailored finish.',
     ageRestricted: true,
   },

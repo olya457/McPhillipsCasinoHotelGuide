@@ -1,4 +1,4 @@
-package com.mcphillipscasinohotelguide
+package com.mcphillips.hotelguide
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

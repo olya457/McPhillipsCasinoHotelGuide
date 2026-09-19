@@ -1,4 +1,4 @@
-package com.mcphillipscasinohotelguide
+package com.mcphillips.hotelguide
 
 import android.app.Application
 import com.facebook.react.PackageList

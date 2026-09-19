@@ -43,7 +43,7 @@ export const tonightProgram: MiniEvent[] = [
   },
   {
     id: 'casino-tournament',
-    title: 'Casino Tournament',
+    title: 'Tournament',
     time: '22:00',
     durationMin: 55,
     venueId: 'grand-casino',
