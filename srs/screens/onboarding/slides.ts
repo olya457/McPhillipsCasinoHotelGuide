@@ -13,7 +13,7 @@ export const onboardingSlides: OnboardingSlide[] = [
   {
     id: 'welcome',
     eyebrow: 'Welcome',
-    title: 'Stay Mate',
+    title: 'Find Your Stay',
     description:
       'Your guide to the casino, hotel and every venue of the complex, collected in one place.',
     image: scenes.facadeNight,

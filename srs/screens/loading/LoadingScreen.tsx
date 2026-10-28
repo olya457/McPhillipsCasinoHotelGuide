@@ -47,7 +47,7 @@ export const LoadingScreen = ({ navigation }: Props) => {
         colors={[...gradients.dark, colors.bg]}
         style={styles.background}
       >
-        <Text accessibilityRole="header" style={styles.title}>Stay Mate</Text>
+        <Text accessibilityRole="header" style={styles.title}>Find Your Stay</Text>
       </LinearGradient>
       <View
         pointerEvents="none"
