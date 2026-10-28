@@ -1,4 +1,4 @@
-package com.staymate
+package com.yourbrand.staymate
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

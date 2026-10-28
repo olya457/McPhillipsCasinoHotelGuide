@@ -1,4 +1,4 @@
-package com.staymate
+package com.yourbrand.staymate
 
 import android.app.Application
 import com.facebook.react.PackageList
